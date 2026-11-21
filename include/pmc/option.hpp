@@ -1,5 +1,5 @@
-#ifndef OPTION_HPP
-#define OPTION_HPP
+#ifndef PMC_OPTION_HPP
+#define PMC_OPTION_HPP
 
 
 #include "pmc/platform.hpp"
@@ -62,4 +62,4 @@ template <OptionType Type>
 
 
 
-#endif  // OPTION_HPP
+#endif  // PMC_OPTION_HPP
