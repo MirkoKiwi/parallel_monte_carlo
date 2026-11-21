@@ -1,0 +1,10 @@
+/out/
+/build*/
+/cmake-build-*/
+CMakeUserPresets.json
+/.vs/
+*.user
+*.suo
+__pycache__/
+*.pyc
+.venv/
