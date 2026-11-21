@@ -3,9 +3,6 @@
 
 
 
-#include <algorithm>
-
-
 
 namespace pmc {
 
@@ -43,7 +40,25 @@ private:
     OptionSpec spec_;
 };
 
+
+
+template <OptionType Type>
+[[nodiscard]] constexpr double payoff_t(double terminal_spot, double strike) noexcept {
+    if constexpr ( Type == OptionType::Call ) {
+        return (terminal_spot > strike) ? terminal_spot - strike : 0.0;
+    }
+    else {
+        return (strike > terminal_spot) ? strike - terminal_spot : 0.0;
+    }
 }
+
+[[nodiscard]] constexpr double payoff(OptionType type, double terminal_spot, double strike) noexcept {
+    return (type == OptionType::Call)
+               ? payoff_t<OptionType::Call>(terminal_spot, strike)
+               : payoff_t<OptionType::Put>(terminal_spot, strike);
+}
+
+}   // namespace pmc
 
 
 
