@@ -1,0 +1,6 @@
+#ifndef BLACK_SCHOLES_HPP
+#define BLACK_SCHOLES_HPP
+
+
+
+#endif  // BLACK_SCHOLES_HPP
