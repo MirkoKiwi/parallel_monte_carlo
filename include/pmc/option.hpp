@@ -2,7 +2,7 @@
 #define OPTION_HPP
 
 
-
+#include "pmc/platform.hpp"
 
 namespace pmc {
 
@@ -43,7 +43,7 @@ private:
 
 
 template <OptionType Type>
-[[nodiscard]] constexpr double payoff_t(double terminal_spot, double strike) noexcept {
+[[nodiscard]] PMC_HD constexpr double payoff_t(double terminal_spot, double strike) noexcept {
     if constexpr ( Type == OptionType::Call ) {
         return (terminal_spot > strike) ? terminal_spot - strike : 0.0;
     }
@@ -52,7 +52,7 @@ template <OptionType Type>
     }
 }
 
-[[nodiscard]] constexpr double payoff(OptionType type, double terminal_spot, double strike) noexcept {
+[[nodiscard]] PMC_HD constexpr double payoff(OptionType type, double terminal_spot, double strike) noexcept {
     return (type == OptionType::Call)
                ? payoff_t<OptionType::Call>(terminal_spot, strike)
                : payoff_t<OptionType::Put>(terminal_spot, strike);
